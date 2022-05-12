@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+/* --------------- CONTENT --------------- */
+nav {
+  width: 100%;
+  height: 80px;
+  background-color: #808000;
+  box-sizing: border-box;
+  border: 3px solid black;
+}
+
+main {
+  height: calc(100% - 80px);
+  width: 100vw;
+  background-color: #008000;
+  padding-left: 2%;
+  padding-right: 2%;
+  box-sizing: border-box;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5%;
+  height: calc(100vh - 130px);
+}
+
+.squares,
+.rectangles-circle {
+  border: 1px solid;
+  aspect-ratio: 1/1;
+}
+
+/* --------------- SQUARES --------------- */
+.squares {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 2s;
+}
+
+.squares .squares-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-right: 10px;
+  width: 100%;
+  height: 48%;
+  transform: rotate(-45deg);
+}
+
+.squares-wrapper .first {
+  margin-right: 30px;
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  border: 3px solid black;
+}
+.squares-wrapper .second {
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  border: 3px solid black;
+}
+
+/* --------------- RECTANGLES WITH CIRCLE --------------- */
+.rectangles-circle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadein 2s;
+}
+
+.rectangles-circle .rectangles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  width: 50%;
+  height: 50%;
+}
+.rectangles .first {
+  background-color: blue;
+  border: 3px solid black;
+  width: 100%;
+  height: 10%;
+}
+.rectangles .second {
+  background-color: blue;
+  border: 3px solid black;
+  width: 100%;
+  height: 10%;
+  margin-top: 10%;
+}
+
+.rectangles-circle .circle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  width: 50%;
+  height: 50%;
+}
+.circle .first {
+  border: 3px solid black;
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin-left: 10%;
+}
+
+/* --------------- RECTANGLE --------------- */
+.rectangle {
+  display: flex;
+  justify-content: center;
+  border: 3px solid black;
+  background-color: #ffffff;
+  margin-top: 10%;
+  animation: fadein 2s;
+}
+.rectangle .content {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --------------- MEDIA QUERIES --------------- */
+@media (max-width: 900px) {
+  .squares {
+    grid-area: a;
+    left: -500px;
+  }
+
+  .rectangles-circle {
+    grid-area: b;
+  }
+  .rectangle {
+    grid-area: c;
+    background-color: blue;
+    margin-bottom: 10%;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "a c"
+      "b c";
+    column-gap: 10%;
+    row-gap: 20px;
+  }
+}
+
+@media (max-width: 583px) {
+  .squares {
+    grid-area: a;
+    max-width: 350px;
+    max-height: 100%;
+  }
+  .rectangles-circle {
+    grid-area: b;
+    max-width: 350px;
+    max-height: 100%;
+  }
+  .rectangle {
+    grid-area: c;
+    max-width: 200px;
+    max-height: 400px;
+    margin-left: 10%;
+    margin-top: 0;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 50%;
+    grid-template-areas:
+      "a "
+      "b "
+      "c ";
+    /* row-gap: 10px; */
+  }
+}
+
+/* --------------- ANIMATIONS --------------- */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
