@@ -1,7 +1,17 @@
+:root {
+  --white: #ffffff;
+  --red: #ff0000;
+  --faded-red: #c83737;
+  --green: #008000;
+  --olive: #808000;
+  --blue: #0000ff;
+  --faded-blue: #008080;
+}
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
+  border-color: black;
 }
 body {
   margin: 0;
@@ -12,21 +22,17 @@ body {
 nav {
   width: 100%;
   height: 80px;
-  background-color: #808000;
-  box-sizing: border-box;
-  border: 3px solid black;
+  background-color: var(--olive);
+  border: 3px solid;
 }
 
 main {
   height: calc(100% - 80px);
   width: 100vw;
-  background-color: #008000;
-  padding-left: 2%;
-  padding-right: 2%;
-  box-sizing: border-box;
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
+  background-color: var(--green);
+  padding: 0 2% 0 2%;
+  border: 3px solid;
+  border-top: none;
   overflow: hidden;
   z-index: 1;
 }
@@ -40,14 +46,12 @@ main {
 
 .squares,
 .rectangles-circle {
-  border: 1px solid;
   aspect-ratio: 1/1;
 }
 
 /* --------------- SQUARES --------------- */
 .squares {
   display: flex;
-  justify-content: center;
   align-items: center;
   animation: fadein 2s;
 }
@@ -56,25 +60,21 @@ main {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  padding-top: 10px;
-  padding-right: 10px;
+  padding: 10px 10px 0 0;
   width: 100%;
   height: 48%;
   transform: rotate(-45deg);
 }
 
+.squares-wrapper .first,
+.squares-wrapper .second {
+  background-color: var(--red);
+  width: 50%;
+  height: 100%;
+  border: 3px solid;
+}
 .squares-wrapper .first {
   margin-right: 30px;
-  background-color: red;
-  width: 50%;
-  height: 100%;
-  border: 3px solid black;
-}
-.squares-wrapper .second {
-  background-color: red;
-  width: 50%;
-  height: 100%;
-  border: 3px solid black;
 }
 
 /* --------------- RECTANGLES WITH CIRCLE --------------- */
@@ -89,21 +89,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
   width: 50%;
   height: 50%;
 }
-.rectangles .first {
-  background-color: blue;
-  border: 3px solid black;
+.rectangles .first,
+.rectangles .second {
+  background-color: var(--blue);
+  border: 3px solid;
   width: 100%;
   height: 10%;
 }
 .rectangles .second {
-  background-color: blue;
-  border: 3px solid black;
-  width: 100%;
-  height: 10%;
   margin-top: 10%;
 }
 
@@ -111,13 +107,13 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid black;
   width: 50%;
   height: 50%;
 }
 .circle .first {
-  border: 3px solid black;
+  border: 3px solid;
   border-radius: 50%;
+  background-color: var(--faded-blue);
   width: 50%;
   height: 50%;
   margin-left: 10%;
@@ -127,8 +123,8 @@ main {
 .rectangle {
   display: flex;
   justify-content: center;
-  border: 3px solid black;
-  background-color: #ffffff;
+  border: 3px solid;
+  background-color: var(--white);
   margin-top: 10%;
   animation: fadein 2s;
 }
@@ -151,7 +147,7 @@ main {
   }
   .rectangle {
     grid-area: c;
-    background-color: blue;
+    background-color: var(--faded-red);
     margin-bottom: 10%;
   }
   .wrapper {
@@ -182,6 +178,7 @@ main {
     max-height: 400px;
     margin-left: 10%;
     margin-top: 0;
+    background-color: var(--blue);
   }
   .wrapper {
     display: grid;
@@ -191,7 +188,6 @@ main {
       "a "
       "b "
       "c ";
-    /* row-gap: 10px; */
   }
 }
 
