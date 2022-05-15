@@ -136,7 +136,7 @@ main {
 }
 
 /* --------------- MEDIA QUERIES --------------- */
-@media (max-width: 900px) {
+@media (max-width: 899px) {
   .squares {
     grid-area: a;
     left: -500px;
@@ -161,7 +161,7 @@ main {
   }
 }
 
-@media (max-width: 583px) {
+@media (max-width: 582px) {
   .squares {
     grid-area: a;
     max-width: 350px;
